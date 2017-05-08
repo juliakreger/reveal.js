@@ -160,9 +160,10 @@ body {
 
 .reveal pre code {
   display: block;
-  padding: 5px;
+  padding: 0px;
   overflow: auto;
-  max-height: 400px;
+  font-size: 0.6em;
+  max-height: 500px;
   word-wrap: normal; }
 
 .reveal table {
