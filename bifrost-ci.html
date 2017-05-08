@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bifrost, CI, Oh My!</title>
+		<meta name="author" content="Julia Kreger">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+
+<!--
+Title: Bifrost: Using Ansible and Ironic to deploy BareMetal CI
+Abstract:
+
+Did you know you can deploy baremetal with OpenStack using
+Ansible?
+
+Did you know that projects do this to help manage their CI
+systems for large platform testing? 
+
+During this session we will talk
+about Bifrost, what it can do for you, and how some of these
+minimalist bare metal clouds have been built for CI purposes.
+Mini-abstract: Ever thought of using Ansible and OpenStack to deploy
+Bare Metal for CI?
+-->
+
+					<h3>Using Ansible and Ironic to deploy BareMetal CI</h3>
+					<small>Julia Kreger</small>
+					<p></p>
+					<p>
+						<small>
+							Ironic Contributor&nbsp;&ndash;&nbsp;
+							juliaashleykreger@gmail.com&nbsp;&ndash;&nbsp;
+							@ashinclouds
+						</small>
+					</p>
+					<p></p>
+					<p>
+						<small>
+							Developer Advocate @ IBM&nbsp;&nbsp;&ndash;&nbsp;&nbsp;
+							Julia.Kreger@ibm.com
+						</small>
+					</p>
+				</section>
+				<section>
+					<p>With virtualization? Containers?</p>
+					<p>Why Bare Metal?</p>
+					<aside class="notes">
+						It is a simple question, but a realistic one.
+						The simple fact is there will always need to be something to deploy the underlying OS.
+						That underlying OS is what powers virtualization and containers. There are also a number of specific reasons, such as. Memory Requirements, Production Like Environments, High Performance Computing, Hypervisors, Containers, or simply Regulatory or Compliance needs.
+					</aside>
+                                        <p class="fragment">Memory</p>
+                                        <p class="fragment">Production Like Environments</p>
+                                        <p class="fragment">High Performance Computing</p>
+                                        <p class="fragment">Hypervisor Hosts</p>
+                                        <p class="fragment">Container Hosts</p>
+                                        <p class="fragment">Regulatory or Compliance</p>
+				</section>
+				<section>
+					<p>But how?</p>
+				</section>
+				<section>
+					<p>Ironic</p>
+					<p>
+					<img width="35%" heigth="35%" data-src="/images/OpenStack_Project_Ironic_mascot.png" class="plain">
+					</p>
+					<p>OpenStack's answer for deploying hardware!</p>
+					<p class="fragment"><small>Besides, it is a cute logo!</small></p>
+					<aside class="notes">
+						Ironic is the toolset that enables not only TripleO to deploy baremetal nodes, but it can also be used by Nova to deploy instances to baremetal.....
+						Besides, how can anyone resist a a project with a cute logo! A bear with drum sticks!
+					</aside>
+				</section>
+
+				<section>
+					<p>Bifrost</p>
+					<p></p>
+					<p>An Ironic sub-project!</p>
+					<p class="fragment">Installs Ironic for stand-alone usage and provides rapid deployment tooling.</p>
+				</section>
+				<section>
+					<p>What makes Bifrost special?</p>
+					<p class="fragment">Other OpenStack services are not required!</p>
+					<p><span class="fragment"><small>Keystone is supported<span class="fragment">&nbsp;&ndash;&nbsp;Neutron support coming soon.</small></span></p>
+					<p class="fragment">Largely Ansible based!</p>
+					<p class="fragment">Uses os_ironic and os_ironic_node!<p>
+					<aside class="notes">I'm sure your wondering what makes bifrost so special, aside from it being my passion. Well, It was intended to be used without other openstack services. You can use keystone in a deployment or not.  Besides, it is ansible based and has helped provide os_ironic and os_ironic_node to the Ansible community.</aside>
+				</section>	
+				<section>
+					<p>Who has heard of Infracloud?</p>
+					<p class="fragment"><small>Infracloud's baremetal is deployed using Bifrost! \o/</small></p>
+					<aside class="notes">Beyond the need for OpenStack to dogfood Tools and software in OpenStack, this provides the administrators of Infracloud to quickly destroy and rebuild the baremetal nodes supporting their CI clouds, either in-mass or as-nedeed.</aside>
+				</section>
+				<section>
+					<p>What about OPNFV?</p>
+					<p class="fragment"><small>They operate production-like bare metal CI test environments!</small></p>
+					<p class="fragment"><small>They also provide 3rd party CI to bifrost.</small></p>
+					<aside class="notes">The OPNFV project operates pods of baremetal nodes in order to simulate production like environments with production like networking. OPNFV operates 3rd Party CI for Bifrost, as bifrost provides the ability to deploy baremetal nodes in a lightweight programatic fashion is ideal for building, and rebuilding their test environments between job runs.</aside>
+				</section>
+				<section>
+					<p>How to get started?</p>
+					<aside class="notes">How does one get started?</aside>
+				</section>
+				<section>
+					<img type="image/svg+xml" width="35%" heigth="35%" src="/images/Ironic_mascot.svg" class="plain">
+					<aside class="notes">First! You will want the spirit of Pixie Boots! Ironic's original bare metal drummer!</aside>
+				</section>
+				<section>
+					<img width="35%" heigth="35%" data-src="/images/hardware.jpg" class="plain">
+					<aside class="notes">And while your installing ironic, You'll need some hardware that supports remote management and has networking such that nodes can reach the bifrost installation for network booting. Alternatively, you could consider a driver in Ironic that supports virtual media.... Since there is always the question of what is supported in-tree: Ironic has support for standards such as IPMI and new in Pike is support for the DMTF Redfish API. Along with standard drivers, we have support for for HPE iLO, Fujitsu IRMC, Dell DRAC, HPE Oneview, Cisco CIMC and UCS. And if you really want to have fun, there is an SNMP power strip driver.</aside>
+				</section>	
+				<section>
+					<p>And then what?</p>
+				</section>
+				<section>
+					<p>Example Bifrost inventory data</p>
+					<p><pre><code>---
+  advancedipmiexample0:
+    ipa_kernel_url: "http://192.168.1.1:8080/custom_ipa.vmlinuz"
+    ipa_ramdisk_url: "http://192.168.1.1:8080/custom_ipa_image.cpio.gz"
+    uuid: "00000000-0000-0000-0000-000000000003"
+    driver_info:
+      power:
+        ipmi_username: "ADMIN"
+        ipmi_address: "192.168.2.21"
+        ipmi_password: "ADMIN_PASSWORD"
+    nics:
+      -
+        mac: "00:00:00:23:34:58"
+      -
+        mac: "00:00:00:12:34:59"
+    instance_info:
+      image_source: "http://192.168.1.1:8080/custom_deployment_image.qcow2"
+      image_checksum: "493972895dc465a09702ce6e85a836c5"
+    driver: "agent_ipmitool"
+    ipv4_address: "192.168.1.3"
+    properties:
+      cpu_arch: "x86_64"
+      ram: "32760"
+      disk_size: "235"
+      cpus: "16"
+    name: "advancedipmiexample0"</code>
+					</pre></p>
+					<aside class="notes">You will need some sort of inventory... In this example, in YAML.</aside>
+				</section>
+				<section>
+					<p>Use Bifrost to enroll and deploy the node!</p>
+                                        <pre><code>export BIFROST_INVENTORY_SOURCE=/path/to/my/inventory.yaml
+ansible-playbook -vvvv -i inventory/bifrost_inventory.py enroll-dynamic.yaml
+ansible-playbook -vvvv -i inventory/bifrost_inventory.py deploy-dynamic.yaml</code>
+					</pre>
+					<aside class="notes">What you might gather from these commands is that bifrost's dynamic inventory reads the environment variable. From there, two stock playbooks exist to help enable the deployment of nodes from a bifrost installed platform. As with any playbook, these can be easilly combined into a single yaml file, a good example of this is the test-bifrost.yaml in the bifrost repository.</aside>
+				</section>
+				<section>
+					<p>Or, use your own playbook to enroll...</p>
+					<pre>
+<code>- name: "Enroll my ironic node"
+  os_ironic:
+    cloud: "bifrost"
+    driver: "agent_ipmitool"
+    name: "baremetal01"
+    state: present
+    nics:
+      -
+        mac: "00:00:00:12:34:59"
+    properties: "{}"
+    driver_info:
+      power:
+        ipmi_username: "ADMIN"
+        ipmi_address: "192.168.2.21"
+        ipmi_password: "ADMIN_PASSWORD"
+      deploy:
+        deploy_kernel: "http://192.168.1.1:8080/custom_ipa.vmlinuz"
+        deploy_ramdisk: "http://192.168.1.1:8080/custom_ipa_image.cpio.gz"
+    delegate_to: localhost</code>
+					</pre>
+				</section>
+				<section>
+					<p>... and deploy!</p>
+					<pre>
+<code>- name: "Deploy my ironic node"
+  os_ironic_node:
+    cloud: "bifrost"
+    name: "baremetal01"
+    state: present
+    config_drive: "http://ironic-deployinator.domain:8080/baremetal01-configdrive.iso.gz"
+    instance_info:
+      image_source: "http://ironic-deployinator.domain:8080/wholedisk_image_of_the_day.qcow2"
+      image_checksum: "0d599f0ec05c3bda8c3b8a68c32a1b47"
+      image_disk_format: "qcow2"
+    wait: true
+    timeout: 1800
+  delegate_to: localhost</code>
+					</pre>
+				</section>
+                                <section>
+                                        <p>But what if I don't know all of the details about my hardware?</p>
+                                        <p class="fragment">Don't Worry! Bifrost supports hardware discovery the via ironic-inspector!</p>
+                                        <pre class="fragment"><code>export BIFROST_INVENTORY_SOURCE=ironic</code></pre>
+                                </section>
+				<section>
+					<p>What about in my CI workflow?</p>
+					<p class="fragment">Just call the commands in your job runner!</p>
+					<aside class="notes">So now the big question is how leverage baremetal nodes for my CI jobs....</aside>
+				</section>
+				<section>
+					<p>Caveats</p>
+					<small>
+						<p class="fragment">Ansible's ironic modules are based upon Kilo networking capabilities.</p>
+						<p class="fragment">When deploying programatically, check a service before assuming the deployment is complete.</p>
+					</small>
+					<aside class="notes">There are, as with all things, some caveats. The networking support in the OpenStack Ironic Ansible modules was put in place during Kilo cycle. Since then, ironic has added portgroups and additional options. This should begin to appear by the end of the year, unless someone wants to volunteer!  When deploying programatically, check that a desired service has started prior to proceeding with the next play with any customizations.</aside>
+				</section>
+				<section>
+					<p>Questions?</p>
+				</section>
+				<section>
+					<p>Thanks!</p>
+					<p class="fragment">https://git.openstack.org/cgit/openstack/bifrost/</p>
+					<p></p>
+					<p class="fragment">https://juliakreger.github.io/talks/bifrost-ci.html</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
