@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Plotting success</title>
+		<meta name="author" content="Julia Kreger">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+
+<!--
+Title:
+How to get a cross-project feature landed in OpenStack 
+Or how I plotted to obtain success...
+
+Abstract:
+
+A little over two years ago, I was told in a Vancouver conference center meeting room, "Two others have tried to propose that feature, but they have both failed". I knew it was the right path to take. I knew people in the room and the larger community wanted to go in that direction. The question was how?
+
+In this this talk, I'll cover my experience building consensus on design, setting expectations across the community, and rallying people together to reach critical mass to land a complex cross project feature in a project such as OpenStack.
+-->
+
+					<h4>How to get a cross-project feature landed in OpenStack</h4>
+					<br>
+					<p>Or how I plotted to obtain success...</p>
+				</section>
+				<section>
+					<h3>Who am I?</h3>
+					<p></p>
+					<p>
+						<small>
+							OpenStack Ironic core contributor<br>
+							Developer Advocate @ IBM<br>
+							<br>
+							email: juliaashleykreger@gmail.com<br>
+							twitter: @ashinclouds<br>
+						</small>
+					</p>
+				</section>
+				<section>
+					<p>
+					Quick Secret: When I started, I was just a crazy person in the room!
+					</p>
+				</section>
+				<section>
+					<h4>A little background!</h4>
+					<aside class="notes">
+						OpenStack could be described as a conglomerate of projects.
+						Some official, some not so much.
+						Many projects have specific focus areas, and may have dependencies.
+						A cross project feature is a feature that involves two or more projects in concert.
+					</aside>
+				</section>
+				<section>
+					<p>So you want to add a feature?</p>
+				</section>
+				<section>
+					<p>Tossing code at the wall doesn't always help!</p>
+				</section>
+				<section>
+					<p>But getting consensus about tossing code upon the wall could...</p>
+				</section>
+				<section>
+					<p>The Beginning!</p>
+					<aside class="notes">
+						I was in a conference room in Vancouver, BC and desire from vendors and community was for cinder integration to exist.
+						It seemed simple to me, it seemed feasible, do-able. So why not?!?
+					</aside>
+				</section>
+				<section>
+					<p>The Thinking Time</p>
+					<aside class="notes">
+						Try to clearly define the entire scope of what you want,
+						dependencies, and the amount of effort.
+					</aside>
+				</section>
+				<section>
+					<p>Beverage consumption time!</p>
+				</section>
+				<section>
+					<p>Be realistic</p>
+					<aside class="notes">
+						Break into chunks logical chunks
+						Takes time
+						And you will not do it all on your own.
+					</aside>
+				</section>
+				<section>
+					<p>Momentum!</p>
+                                        <aside class="notes">
+						Momentum does take work to get started
+						Likeminded people will eventually join in!
+						Some testing, Some testwriting, some in other components to help things move foward.
+                                        </aside>
+				</section>
+				<section>
+					<p>Meetings are actually a good thing!</p>
+	                                <aside class="notes">
+						Keeping track of our priorities in a visible fashion
+                                        </aside>
+				</section>
+				<section>
+					<p>And Magic happens!</p>
+				</section>
+				<section>
+					<p>Looking back, I learned a lot!</p>
+				</section>
+				<section>
+					<p>Questions?</p>
+				</section>
+				<section>
+					<p>Thanks!</p>
+					<p>https://juliakreger.github.io/talks/plot-success.html</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
